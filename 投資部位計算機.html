@@ -7,16 +7,16 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #e6f0ff; /* 淺藍色背景 */
+            background-color: #e6f0ff; 
             color: #333;
             text-align: center;
             padding: 20px;
         }
         h1 {
-            color: #1e90ff; /* 深藍色標題 */
+            color: #1e90ff; 
         }
         .calculator {
-            background: #f8f9fa; /* 淺灰色背景 */
+            background: #f8f9fa; 
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 400px;
@@ -31,7 +31,7 @@
             border-radius: 5px;
         }
         button {
-            background-color: #1e90ff; /* 深藍色按鈕 */
+            background-color: #1e90ff; 
             color: white;
             border: none;
             padding: 10px 20px;
@@ -40,13 +40,13 @@
             font-size: 16px;
         }
         button:hover {
-            background-color: #4682b4; /* 輕微變深的藍色 */
+            background-color: #4682b4; 
         }
         .result {
             margin-top: 20px;
             font-size: 18px;
             font-weight: bold;
-            color: #2f4f4f; /* 深灰色結果文字 */
+            color: #2f4f4f; 
         }
     </style>
 </head>
@@ -58,7 +58,7 @@
         <label for="risk">風險值 (%):</label><br>
         <input type="number" id="risk" placeholder="輸入風險值"><br>
         <label for="atr">真實平均波幅 (ATR):</label><br>
-        <input type="number" id="atr" placeholder="輸入波動率"><br>
+        <input type="number" id="atr" placeholder="輸入真實平均波幅"><br>
         <label for="price">當前股價:</label><br>
         <input type="number" id="price" placeholder="輸入當前股價"><br>
         <button onclick="calculate()">計算</button>
