@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💼投資部位計算機💼</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f0ff; /* 淺藍色背景 */
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #1e90ff; /* 深藍色標題 */
+        }
+        .calculator {
+            background: #f8f9fa; /* 淺灰色背景 */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #1e90ff; /* 深藍色按鈕 */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #4682b4; /* 輕微變深的藍色 */
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2f4f4f; /* 深灰色結果文字 */
+        }
+    </style>
+</head>
+<body>
+    <h1>💼投資部位計算機💼</h1>
+    <div class="calculator">
+        <label for="principal">本金:</label><br>
+        <input type="number" id="principal" placeholder="輸入本金"><br>
+        <label for="risk">風險值 (%):</label><br>
+        <input type="number" id="risk" placeholder="輸入風險值"><br>
+        <label for="atr">真實平均波幅 (ATR):</label><br>
+        <input type="number" id="atr" placeholder="輸入波動率"><br>
+        <label for="price">當前股價:</label><br>
+        <input type="number" id="price" placeholder="輸入當前股價"><br>
+        <button onclick="calculate()">計算</button>
+        <div class="result">
+            <p id="shares">股數：N/A</p>
+            <p id="totalValue">該單總價值：N/A</p>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const principal = parseFloat(document.getElementById('principal').value);
+            const risk = parseFloat(document.getElementById('risk').value) / 100;
+            const atr = parseFloat(document.getElementById('atr').value);
+            const price = parseFloat(document.getElementById('price').value);
+
+            if (isNaN(principal) || isNaN(risk) || isNaN(atr) || isNaN(price)) {
+                alert("請輸入有效的數字！");
+                return;
+            }
+
+            const shares = (principal * risk) / atr;
+            const totalValue = shares * price;
+
+            document.getElementById('shares').textContent = `股數：${shares.toFixed(2)} 股`;
+            document.getElementById('totalValue').textContent = `該單總價值：$${totalValue.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
